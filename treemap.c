@@ -80,11 +80,11 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
     while(tree->current != NULL)
     {
         int comp = tree->lower_than(key, tree->current->pair->key);
-        if(comp != 1)
+        if(comp == 0)
         {
             return tree->current->pair;
         }
-        else if(comp == 1)
+        else if(comp < 0)
         {
             tree->current = tree->current->left;
         }
