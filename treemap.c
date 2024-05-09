@@ -83,21 +83,16 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
         {
             return tree->current->pair;
         }
+        int comp = tree->lower_than(tree->current->pair->key, key);
+
+        if(comp == 1)
+        {
+            tree->current = tree->current->left;
+        }
         else
         {
-            int comp = tree->lower_than(tree->current->pair->key, key);
-
-            if(comp == 1)
-            {
-                tree->current = tree->current->left;
-            }
-            else
-            {
-                tree->current = tree->current->right;
-            }
+            tree->current = tree->current->right;
         }
-        
-        
     }
     return NULL;
 }
