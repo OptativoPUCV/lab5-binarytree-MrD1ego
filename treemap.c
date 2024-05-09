@@ -80,7 +80,7 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
     while(tree->current != NULL)
     {
         int comp = tree->lower_than(key, tree->current->pair->key);
-        if(comp == 0)
+        if(comp != 1)
         {
             return tree->current->pair;
         }
