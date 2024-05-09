@@ -79,25 +79,24 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 
     while(tree->current != NULL)
     {
-        /*if(tree->current == key)
+        if(is_equal(tree, key, tree->current))
         {
             return tree->current->pair;
         }
         else
-        {*/
-        int comp = tree->lower_than(tree->current->pair->key, key);
-        if(comp == 0)
         {
-            return tree->current->pair;
+            int comp = tree->lower_than(tree->current->pair->key, key);
+
+            if(comp == 1)
+            {
+                tree->current = tree->current->left;
+            }
+            else
+            {
+                tree->current = tree->current->right;
+            }
         }
-        else if(comp == 1)
-        {
-            tree->current = tree->current->left;
-        }
-        else
-        {
-            tree->current = tree->current->right;
-        }
+        
         
     }
     return NULL;
