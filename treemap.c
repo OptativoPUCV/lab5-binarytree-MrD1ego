@@ -96,7 +96,7 @@ void eraseTreeMap(TreeMap * tree, void* key){
 
 }
 
-Pair * mininum(void* key)
+Pair * minimum(void* key)
 {
     return NULL;
 }
