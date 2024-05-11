@@ -50,9 +50,36 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
 
 void insertTreeMap(TreeMap * tree, void* key, void * value)
 {
-    /*TreeNode* parent = NULL;
-    TreeNode* current = tree->root;*/
-    
+    TreeNode *parent = NULL;
+    TreeNode *current = tree->root;
+
+    while (current != NULL) {
+        if (is_equal(tree, current->pair->key, key)) {
+            return;
+        } else if (tree->lower_than(key, current->pair->key)) {
+            parent = current;
+            current = current->left;
+        } else {
+            parent = current;
+            current = current->right;
+        }
+    }
+
+    TreeNode *new_node = createTreeNode(key, value);
+    if (new_node == NULL) {
+        return;
+    }
+
+    if (parent == NULL) {
+        tree->root = new_node;
+    } else if (tree->lower_than(key, parent->pair->key)) {
+        parent->left = new_node;
+    } else {
+        parent->right = new_node;
+    }
+
+    tree->current = new_node;
+
 }
 
 
