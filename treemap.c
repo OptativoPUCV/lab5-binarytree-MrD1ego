@@ -75,10 +75,10 @@ void eraseTreeMap(TreeMap * tree, void* key){
 Pair * searchTreeMap(TreeMap * tree, void* key) {
 
     TreeNode *current = tree->root;
-    printf("Buscando clave: %d\n", *(int*)key);
-    while (current != NULL) 
+
+    return current->pair;
+    /*while (current != NULL) 
     {
-         printf("Clave actual: %d\n", *(int*)current->pair->key);
         if (is_equal(tree, current->pair->key, key)) 
         {
             tree->current = current;
@@ -94,7 +94,7 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
         }
     }
     tree->current = NULL;
-    return NULL;
+    return NULL;*/
 }
 
 
